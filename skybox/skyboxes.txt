@@ -1,0 +1,64 @@
+# Which skybox image to show with each of the game's backdrops.
+#
+# Format:  Backdrop name = image file in this folder
+#
+# Images can be 2:1 panoramas (equirectangular) or 4:3 horizontal-cross cubemaps, of any size, as PNG
+# or JPG, or packed as .lvsky. The middle of a panorama faces forward. A backdrop that isn't listed, or that
+# is commented out with #, keeps whichever skybox is already showing. Restart the game after editing.
+# The mod's log, BepInEx\LogOutput.log, says which backdrop is showing as you play.
+
+Main Menu = FS003_Sunset.lvsky
+
+# Chapter 1: the ruin interiors are dark, the title card has light shafts, and outside is a bright teal day.
+Chapter 01 Mui Backdrop = FS012_Night_Moonless.lvsky
+Chapter 01 Part 1 Backdrop = FS013_Day_Sunless.lvsky
+Chapter 01 Part 2 Backdrop = FS005_Night_Moonless.lvsky
+Chapter 01 Outside Backdrop = FS002_Day_Sunless.lvsky
+Chapter 02 Backdrop = FS004_Day_Sunless.lvsky
+Chapter 03 Backdrop = FS003_Day_Sunless.lvsky
+# Snowy mountains in a blizzard.
+Chapter 04 Backdrop = FS008_Snowy.lvsky
+Chapter 05 Part 1 Backdrop = FS003_Rainy.lvsky
+Chapter 05 Part 2 Backdrop = FS012_Rainy.lvsky
+Chapter 05 Part 3 Backdrop = FS007_Day_Sunless.lvsky
+# Tropical islands and sea.
+Chapter 06 Backdrop = FS006_Day_Sunless.lvsky
+# Underwater.
+Chapter 07 Backdrop = FS015_Night_Moonless.lvsky
+Chapter 08 Backdrop = FS001_Day_Sunless.lvsky
+Chapter 09 Backdrop = FS010_Night_Moonless.lvsky
+Chapter 10 Backdrop = FS009_Day_Sunless.lvsky
+Chapter 11 Backdrop = FS012_Day_Sunless.lvsky
+# The night forest. Scene 15 couldn't be captured, so it shares Scene 10's sky.
+Chapter 12 Scene 10 Backdrop = FS011_Night_Moonless.lvsky
+Chapter 12 Scene 15 Backdrop = FS011_Night_Moonless.lvsky
+Chapter 12 Scene 20 Backdrop = FS007_Night_Moonless.lvsky
+Chapter 12 Scene 30 Backdrop = FS009_Night_Moonless.lvsky
+Chapter 13 Backdrop = FS006_Night_Moonless.lvsky
+Chapter 14 Backdrop = FS016_Night_Moonless.lvsky
+Chapter 15 Backdrop = FS020_Night_Moonless.lvsky
+# The flying boat above fog at night.
+Chapter 16 Backdrop = FS019_Night_Moonless.lvsky
+Chapter 17 Backdrop 1 = FS007_Sunrise.lvsky
+Chapter 17 Backdrop 2 = FS005_Sunrise.lvsky
+Chapter 19 Backdrop 1 = FS017_Rainy.lvsky
+Chapter 19 Backdrop 2 = FS007_Snowy.lvsky
+# Chapters 18 and 20 have no backdrop of their own, so they keep the sky before them.
+
+# Tints follow the game's own colour fades, so the sky changes along with the screen. Each line names a
+# backdrop, one of the game's post-process volumes, and the red, green and blue that volume leaves at full
+# strength (1 is unchanged). The tint only applies while that backdrop is showing.
+# Tint: Backdrop name / Volume name = red green blue
+# A backdrop name of * applies to every level. Lana II uses these volumes indoors and underground, so the sky dims to
+# 40% there, as LanaVR does in the first game's caves.
+Tint: * / PP Inside = 0.40 0.40 0.40
+Tint: * / PP Wemari Cave = 0.40 0.40 0.40
+Tint: * / PP Tunnel Sequence = 0.40 0.40 0.40
+# Chapter 9 starts indoors and already has a dark sky, so it isn't dimmed further.
+Tint: Chapter 09 Backdrop / PP Inside = 1 1 1
+
+# Shades follow places where the game's own painted sky darkens or changes colour along a level. Each stop is
+# a distance along the level, then red, green and blue strengths, with smooth changes between stops.
+# Shade: Backdrop name = distance red green blue | distance red green blue | ...
+# --- Shades from the sky scan (tools\make_shades.ps1). Hand changes here are replaced on the next run.
+# --- End of scanned shades

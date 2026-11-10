@@ -1,0 +1,38 @@
+# Everything stays out unless it's listed below. This folder also holds decompiled game code, the purchased sky pack,
+# captures of the game, saves backups and test output, none of which may ever reach the repository.
+# PLAN.md and TESTING.md are private working notes.
+/*
+
+!/.gitignore
+!/README.md
+!/DEVELOPMENT.md
+!/LanaVR2.csproj
+
+!/src/
+
+!/native/
+/native/build/
+# The sky encryption key. Never commit it.
+/native/SkyKey.h
+
+!/install/
+
+!/tests/
+/tests/*.txt
+/tests/props/
+
+# Only the mapping. The packed skies go in the release zip, never in the repository.
+!/skybox/
+/skybox/*
+!/skybox/skyboxes.txt
+
+# Only the mod's own tools. Not decomp, dl, ilspy, openxr or the files copied from the game folder.
+!/tools/
+/tools/*
+!/tools/make_package.ps1
+!/tools/pack_skies.ps1
+!/tools/upscale_skies.ps1
+!/tools/make_shades.ps1
+!/tools/sky_matches.ps1
+!/tools/mock_runtime.json
+!/tools/prof/
